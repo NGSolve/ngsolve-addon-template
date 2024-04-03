@@ -15,6 +15,11 @@ PYBIND11_MODULE(my_ngsolve_addon, m) {
   m.def("my_function", &my_function, "A simple function", py::arg("x") = 1.0);
 
 
+  m.def("Vertex2Element", [](shared_ptr<ngcomp::MeshAccess> ma, size_t vnum) 
+        {
+          return ngcore::makePyTuple (ngcore::Array<int> (ma->GetVertexElements(vnum,ngcomp::VOL)));
+        }, "return elements attached to vertex");
+  
   m.def("ExploreMesh", &ngcomp::ExploreMesh, "exploring the mesh", py::arg("mesh"));
   
   m.def("EigH",
