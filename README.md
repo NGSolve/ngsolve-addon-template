@@ -1,6 +1,4 @@
-# ngsolve-addon-template
-
-An minimal NGSolve addon with Python bindings
+# An minimal NGSolve addon with Python bindings
 
 Quick install: install the add-on package directly with pip:
 
