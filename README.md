@@ -1,6 +1,6 @@
 # An minimal NGSolve addon with Python bindings
 
-Quick install: install the add-on package directly with pip:
+Quick install: install the addon package directly with pip:
 
     pip install git+https://github.com/NGSolve/ngsolve-addon-template.git
 
