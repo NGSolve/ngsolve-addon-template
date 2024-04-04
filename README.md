@@ -1,10 +1,18 @@
 # ngsolve-addon-template
-An Minimal NGSolve Addon with Python Bindings
 
+An minimal NGSolve addon with Python bindings
 
-
-Install the source-wheel:
+Quick install: install the add-on package directly with pip:
 
     pip install git+https://github.com/NGSolve/ngsolve-addon-template.git
+
+Step-by-step installation:
+
+    git clone https://github.com/NGSolve/ngsolve-addon-template.git
+    cd ngsolve-addon-template
+    mkdir build
+    cd build
+    cmake ..
+    make -j4 install
 
 
