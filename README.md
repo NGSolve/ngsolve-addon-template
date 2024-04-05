@@ -14,6 +14,6 @@ Step-by-step installation:
     make -j4 install
 
 
-Similar examples you can find here:
+Some more NGSolve addons you can find here:
 
-  * https://github.com/TUWien-ASC/NGS-myfe
+  * https://github.com/TUWien-ASC/NGS-myfe (including vs-code instructions)
