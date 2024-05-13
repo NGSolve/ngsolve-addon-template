@@ -32,13 +32,25 @@ else(WIN32)
   set_target_properties(${module_name} PROPERTIES SUFFIX ".so")
 endif(WIN32)
 
+execute_process(COMMAND ${Python3_EXECUTABLE} -c "import sys,sysconfig,os.path; print(os.path.relpath(sysconfig.get_path('platlib'), sys.prefix))"
+  OUTPUT_STRIP_TRAILING_WHITESPACE OUTPUT_VARIABLE python3_library_dir
+)
+
 if(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
-  execute_process(COMMAND ${Python3_EXECUTABLE} -m site --user-site OUTPUT_STRIP_TRAILING_WHITESPACE OUTPUT_VARIABLE install_dir RESULT_VARIABLE ret)
-  if (NOT ret EQUAL 0)
-    # user site directory is disabled (are we in a virtual environment?)
-    set(install_dir ${Python3_SITEARCH})
+  # Set install prefix to user-base if a user site is available, sys.prefix otherwise
+  execute_process(COMMAND ${Python3_EXECUTABLE} -c "import sys; print(sys.prefix)"
+    OUTPUT_STRIP_TRAILING_WHITESPACE OUTPUT_VARIABLE install_prefix
+  )
+  execute_process(COMMAND ${Python3_EXECUTABLE} -m site --user-base
+    OUTPUT_STRIP_TRAILING_WHITESPACE OUTPUT_VARIABLE user_base RESULT_VARIABLE ret
+  )
+  if (ret EQUAL 0)
+    set(install_prefix ${user_base})
   endif()
-  message("The python module ${module_name} will be installed to: ${install_dir}")
-  set(CMAKE_INSTALL_PREFIX ${install_dir} CACHE PATH "Install dir" FORCE)
+  set(CMAKE_INSTALL_PREFIX ${install_prefix} CACHE PATH "Install dir" FORCE)
+  set(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT OFF)
 endif(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
-install(TARGETS ${module_name} DESTINATION .)
+
+message(STATUS "Install prefix: ${CMAKE_INSTALL_PREFIX}")
+message(STATUS "Module install dir: ${python3_library_dir}")
+install(TARGETS ${module_name} DESTINATION ${python3_library_dir})
