@@ -37,3 +37,6 @@ __pycache__
 .cache
 
 demos/.ipynb_checkpoints
+*egg-info
+_skbuild
+dist

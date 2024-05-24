@@ -1,17 +1,19 @@
 cmake_minimum_required(VERSION 3.16)
 
-###############################################################################
-# Edit here
-###############################################################################
+# change this to your desired addon name
+# make sure, that the name matches exactly the argument of PYBIND11_MODULE()
+set(addon_name my_ngsolve_addon)
 
-# make sure the module_name matches the first argument of PYBIND11_MODULE
-set(module_name my_ngsolve_addon)
-set(source_files src/my_ngsolve_addon.cpp src/explore_mesh.cpp)
-
-###############################################################################
-# STOP editing here
-###############################################################################
-
-# Don't change this
-project(${module_name})
+project(${addon_name})
 include(ngsolve_addon.cmake)
+
+# change the source file arguments to your source files
+add_ngsolve_addon(${addon_name} src/my_ngsolve_addon.cpp src/explore_mesh.cpp)
+
+# install the compiled python module and __init__.py ( don't change this )
+set(ADDON_INSTALL_DIR ${python3_library_dir}/${addon_name})
+install(TARGETS ${addon_name} DESTINATION ${ADDON_INSTALL_DIR})
+install(FILES src/__init__.py DESTINATION ${ADDON_INSTALL_DIR})
+
+# install additional python files/demos/examples
+install(FILES demos/exploremesh.py DESTINATION ${ADDON_INSTALL_DIR}/demos)
