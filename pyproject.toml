@@ -8,12 +8,11 @@ version = "0.0.1"
 description="A minimal example for an NGSolve addon"
 readme = "README.md"
 authors = [ { name = "NGSolve" } ]
-requires-python = ">=3.7"
+requires-python = ">=3.8"
 classifiers = [
   "Development Status :: 4 - Beta",
   "License :: OSI Approved :: MIT License",
   "Programming Language :: Python :: 3 :: Only",
-  "Programming Language :: Python :: 3.7",
   "Programming Language :: Python :: 3.8",
   "Programming Language :: Python :: 3.9",
   "Programming Language :: Python :: 3.10",
@@ -24,8 +23,20 @@ classifiers = [
 [project.optional-dependencies]
 test = ["pytest"]
 
-[tool.scikit-build]
-wheel.expand-macos-universal-tags = true
-
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+
+[tool.cibuildwheel]
+skip = """
+  pp*
+  *_i686
+  *musllinux*
+"""
+
+[tool.cibuildwheel.linux]
+repair-wheel-command = ""
+
+[tool.cibuildwheel.macos]
+environment = {MACOSX_DEPLOYMENT_TARGET=10.15}
+repair-wheel-command = ""
+archs = ["universal2"]
