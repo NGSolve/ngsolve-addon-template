@@ -1,12 +1,14 @@
 # An minimal NGSolve addon with Python bindings
 
-This project is a template for your own NGSolve add-on project. 
+## using the project template
+To create your own NGSolve addon project you perfrome the following steps:
+
 1. git-clone this project
 2. fill the project with your C++ and Python files
 3. adapt CMakeList.txt
-4. adapt project.toml, section ....
+4. adapt file pyproject.toml, section [project]
 
-
+## installing the template project
 
 Quick install: install the addon package directly with pip:
 
