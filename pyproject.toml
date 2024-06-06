@@ -1,6 +1,5 @@
 [build-system]
-requires = ["scikit-build-core>=0.3.3", "pybind11", "pybind11_stubgen", "cmake>=3.26"]
-# , "netgen-mesher", "ngsolve"]
+requires = ["scikit-build-core>=0.3.3", "pybind11", "pybind11_stubgen", "cmake>=3.26", "netgen-mesher", "ngsolve"]
 build-backend = "scikit_build_core.build"
 
 [project]
