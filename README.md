@@ -14,6 +14,10 @@ Quick install: install the addon package directly with pip:
 
     python -m pip install git+https://github.com/NGSolve/ngsolve-addon-template.git
 
+test it:
+
+    python -m my_ngsolve_addon.demos.exploremesh
+
 Step-by-step installation:
 
     git clone https://github.com/NGSolve/ngsolve-addon-template.git
