@@ -1,7 +1,7 @@
 # An minimal NGSolve addon with Python bindings
 
 ## using the project template
-To create your own NGSolve addon project you perfrome the following steps:
+To create your own NGSolve addon project you perfrom the following steps:
 
 1. git-clone this project
 2. fill the project with your C++ and Python files
