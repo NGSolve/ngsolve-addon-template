@@ -11,9 +11,13 @@ include(ngsolve_addon.cmake)
 add_ngsolve_addon(${addon_name} src/my_ngsolve_addon.cpp src/explore_mesh.cpp)
 
 # install the compiled python module and __init__.py ( don't change this )
-set(ADDON_INSTALL_DIR ${python3_library_dir}/${addon_name})
-install(TARGETS ${addon_name} DESTINATION ${ADDON_INSTALL_DIR})
-install(FILES src/__init__.py DESTINATION ${ADDON_INSTALL_DIR})
+install(TARGETS ${addon_name} DESTINATION ${addon_name})
+install(FILES src/__init__.py DESTINATION ${addon_name})
 
 # install additional python files/demos/examples
-install(FILES demos/exploremesh.py DESTINATION ${ADDON_INSTALL_DIR}/demos)
+install(FILES demos/exploremesh.py DESTINATION ${addon_name}/demos)
+
+# generate stub files for autocomplete in IDEs
+# this must be done at the very end (such that the stubgen generation happens after the python modules are installed)
+install(CODE ${stubgen_generation_code})
+install(DIRECTORY ${stubgen_directory} DESTINATION ${addon_name})
