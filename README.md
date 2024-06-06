@@ -12,7 +12,7 @@ To create your own NGSolve addon project you perfrom the following steps:
 
 Quick install: install the addon package directly with pip:
 
-    pip install git+https://github.com/NGSolve/ngsolve-addon-template.git
+    python -m pip install git+https://github.com/NGSolve/ngsolve-addon-template.git
 
 Step-by-step installation:
 
