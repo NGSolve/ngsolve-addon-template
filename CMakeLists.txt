@@ -19,5 +19,5 @@ install(FILES demos/exploremesh.py DESTINATION ${addon_name}/demos)
 
 # generate stub files for autocomplete in IDEs
 # this must be done at the very end (such that the stubgen generation happens after the python modules are installed)
-install(CODE ${stubgen_generation_code})
-install(DIRECTORY ${stubgen_directory} DESTINATION ${addon_name})
+# install(CODE ${stubgen_generation_code})
+# install(DIRECTORY ${stubgen_directory} DESTINATION ${addon_name})
