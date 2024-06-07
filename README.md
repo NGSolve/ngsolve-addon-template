@@ -25,7 +25,7 @@ Quick install: install the addon package directly with pip from git:
 
 test it:
 
-    python -m my_ngsolve_addon.demos.exploremesh
+    python -m ngsolve_addon_template.demos.exploremesh
 
 Step-by-step installation:
 

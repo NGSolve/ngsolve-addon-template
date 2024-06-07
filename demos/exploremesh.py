@@ -1,6 +1,6 @@
 # Exploring the mesh in C++
 from ngsolve import *
-import my_ngsolve_addon as addon
+import ngsolve_addon_template as addon
 
 mesh = Mesh(unit_cube.GenerateMesh(maxh=1))
 
