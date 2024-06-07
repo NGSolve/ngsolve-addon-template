@@ -8,9 +8,9 @@ To create your own NGSolve addon project you perfrom the following steps:
 3. adapt CMakeList.txt (addon_name, C++ and Python files)
 4. adapt file pyproject.toml, section [project]
 5. adapt `src/__init__.py` file
-6. follow the instructions below to install your addon-project
+6. adapt `README.md` for installation instructions for your addon-project
 
-## installing the template project
+## installing the addon project
 
 Quick install: install the addon package directly with pip from git:
 
