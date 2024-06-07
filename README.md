@@ -3,10 +3,11 @@
 ## using the project template
 To create your own NGSolve addon project you perfrom the following steps:
 
-1. git-clone this project
+1. git-fork this project
 2. fill the project with your C++ and Python files
-3. adapt CMakeList.txt
+3. adapt CMakeList.txt (addon_name, C++ and Python files)
 4. adapt file pyproject.toml, section [project]
+5. adapt src/__init__.py file 
 
 ## installing the template project
 
