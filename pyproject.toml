@@ -11,7 +11,7 @@ classifiers = [
 ]
 
 [build-system]
-requires = ["scikit-build-core>=0.9.0", "pybind11_stubgen", "cmake", "toml", "ngsolve>=6.2.2403.post90.dev0"] # TODO: update this to ngsolve>=6.2.2404, when it is released
+requires = ["scikit-build-core>=0.9.0", "pybind11_stubgen", "cmake", "toml", "ngsolve>=6.2.2403.post91.dev0"] # TODO: update this to ngsolve>=6.2.2404, when it is released
 build-backend = "scikit_build_core.build"
 
 [tool.scikit-build]
