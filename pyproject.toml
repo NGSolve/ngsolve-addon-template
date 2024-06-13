@@ -4,11 +4,18 @@ version = "0.0.1"
 description="A minimal example for an NGSolve addon"
 readme = "README.md"
 requires-python = ">=3.8"
+dependencies = [] # ngsolve will be added automatically
+dynamic = ["dependencies"]
 classifiers = [
   "License :: OSI Approved :: MIT License",
 ]
 
 [build-system]
-requires = ["scikit-build-core>=0.3.3", "pybind11", "pybind11_stubgen", "cmake", "netgen-mesher", "ngsolve"]
+requires = ["scikit-build-core>=0.9.0", "pybind11_stubgen", "cmake", "toml", "ngsolve>=6.2.2403.post90.dev0"] # TODO: update this to ngsolve>=6.2.2404, when it is released
 build-backend = "scikit_build_core.build"
+
+[tool.scikit-build]
+experimental = true
+# This adds ngsolve (with exact build-time version) to the dependencies
+metadata.dependencies.provider="ngsolve._scikit_build_core_dependencies"
 
