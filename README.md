@@ -19,7 +19,7 @@ Quick install: install the addon package directly with pip from git:
 
 **Alternative** needed for self-compiled NGSolve
 
-    python -m pip install scikit-build-core pybind11_stubgen 
+    python -m pip install scikit-build-core pybind11_stubgen toml
     python -m pip install --no-build-isolation git+https://github.com/NGSolve/ngsolve-addon-template.git
 
 
