@@ -75,7 +75,7 @@ Note: `pip install git+https://github.com/ngsolve/ngsolve-addon-template` is equ
 |                                          | `pip install ngsolve-addon-template` [^1] | `pip install .`                      | `pip install --no-build-isolation .` | Addon CMake                           |
 |------------------------------------------|-------------------------------------------|--------------------------------------|--------------------------------------|---------------------------------------|
 | `pip install ngsolve`                    | ✅                                        | ✅                                   | ✅ [^2]                              | ✅                                    |
-| `pip install --pre ngsolve`              | ✅ [^3]                                   | ✅ [^3]                              | ✅ [^2]                              | ✅                                    |
+| `pip install --pre ngsolve`              | ⚠️  [^3]                                   | ⚠️  [^3]                              | ✅ [^2]                              | ✅                                    |
 | NGSolve CMake                            | ⚠️  [^4]                                   | ⚠️  [^4]                              | ✅ [^2]                              | ✅                                    |
 
 - ✅ this combination is expected to work (check footnotes for prerequisites and side effects)
