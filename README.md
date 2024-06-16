@@ -75,13 +75,12 @@ Note: `pip install git+https://github.com/ngsolve/ngsolve-addon-template` is equ
 |                                          | `pip install ngsolve-addon-template` [^1] | `pip install .`                      | `pip install --no-build-isolation .` | Addon CMake                           |
 |------------------------------------------|-------------------------------------------|--------------------------------------|--------------------------------------|---------------------------------------|
 | `pip install ngsolve`                    | ✅                                        | ✅                                   | ✅ [^2]                              | ✅                                    |
-| `pip install --pre ngsolve`              | ⚠️  [^3]                                   | ⚠️  [^3]                              | ✅ [^2]                              | ✅                                    |
-| NGSolve CMake                            | ⚠️  [^4]                                   | ⚠️  [^4]                              | ✅ [^2]                              | ✅                                    |
+| `pip install --pre ngsolve`              | ❌ [^3]                                   | ❌ [^3]                              | ✅ [^2]                              | ✅                                    |
+| NGSolve CMake                            | ❌ [^3]                                   | ❌ [^3]                              | ✅ [^2]                              | ✅                                    |
 
 - ✅ this combination is expected to work (check footnotes for prerequisites and side effects)
 - ⚠️ might work but is not recommended
 [^1]: Only avaialble if the app developer provides wheel packages on pypi (for ngsolve-addon-template, no wheels are provided currently)
 [^2]: Make sure that all build-dependencies are installed (`requires` field in the `[build-system]` section of [pyproject.toml](https://github.com/NGSolve/ngsolve-addon-template/blob/advanced/pyproject.toml)). Example: `pip install "scikit-build-core>=0.9.0" pybind11_stubgen cmake toml ngsolve>=6.2.2404`
-[^3]: Installation should proceed without errrors but your prerelease ngsolve version will be overwritten by the version used to compile the plugin. Use `--no-build-isolation` if you want to keep your dev ngsolve version.
-[^4]: Make sure that PYTHONPATH is set to your ngsolve installation, this will make the NGSolve package also available in the isolated build environment. Otherwise any other version is used to compile the plugin.
+[^3]: Installation could proceed without errrors but your prerelease/self-compiled ngsolve version will be overwritten by the version used to compile the plugin. Use `--no-build-isolation` if you want to keep your dev ngsolve version.
 
