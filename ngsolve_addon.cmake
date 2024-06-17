@@ -25,6 +25,7 @@ macro(add_ngsolve_addon module_name)
   # Create the module
   add_library(${module_name} SHARED ${ARGN})
   target_link_libraries(${module_name} PUBLIC ngsolve Python3::Module)
+  target_include_directories(${module_name} PRIVATE $<TARGET_PROPERTY:ngsolve,INTERFACE_INCLUDE_DIRECTORIES>)
   set_target_properties(${module_name} PROPERTIES PREFIX "" CXX_STANDARD 17)
 
   # Python does not recognize .dll (Windows) and .dylib (MacOS) file endings as modules
