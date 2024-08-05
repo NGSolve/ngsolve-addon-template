@@ -1,3 +1,7 @@
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE "RelWithDebInfo" CACHE STRING INTERNAL)
+endif(NOT CMAKE_BUILD_TYPE)
+
 cmake_minimum_required(VERSION 3.16)
 
 # change this to your desired addon name
