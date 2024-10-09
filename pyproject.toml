@@ -31,6 +31,7 @@ metadata.dependencies.provider="ngsolve._scikit_build_core_dependencies"
 local_scheme = "no-local-version"
 
 [tool.cibuildwheel]
+manylinux-x86_64-image = "manylinux_2_28"
 skip = """
   pp*
   *_i686
