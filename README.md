@@ -44,7 +44,6 @@ alternative step-by-step installation using `cmake`:
     cmake ..
     make -j4 install
 
-
 ## Troubleshooting
 
 ### Problem
@@ -62,4 +61,5 @@ Update `pyproject.toml` by adding the following line to the `[tool.cibuildwheel]
 manylinux-x86_64-image = "manylinux_2_28"
 ```
 
+Some more NGSolve addons you can find here:
   * https://github.com/TUWien-ASC/NGS-myfe (including vs-code instructions)
