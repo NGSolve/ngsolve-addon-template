@@ -45,8 +45,21 @@ alternative step-by-step installation using `cmake`:
     make -j4 install
 
 
+## Troubleshooting
 
+### Problem
+Error in gihub actions when building Linux package:
 
-Some more NGSolve addons you can find here:
+```
+    ImportError: /lib64/libstdc++.so.6: version `GLIBCXX_3.4.20' not found
+```
+
+### Solution
+Update `pyproject.toml` by adding the following line to the `[tool.cibuildwheel]` section:
+
+```toml
+[tool.cibuildwheel]
+manylinux-x86_64-image = "manylinux_2_28"
+```
 
   * https://github.com/TUWien-ASC/NGS-myfe (including vs-code instructions)
