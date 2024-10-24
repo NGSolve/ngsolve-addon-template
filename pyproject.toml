@@ -4,7 +4,7 @@ name = "ngsolve_addon_template"
 version = "0.0.1"
 description="A minimal example for an NGSolve addon"
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.9"
 dependencies = [] # ngsolve will be added automatically
 dynamic = ["dependencies"]
 classifiers = [
