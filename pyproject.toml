@@ -14,7 +14,14 @@ classifiers = [
 # Update NGSolve when you rely on newer features, but keep the '>=' to allow also newer versions
 # Maybe you also need to add other requirements to build your package
 [build-system]
-requires = ["ngsolve>=6.2.2404.post16", "scikit-build-core>=0.9.0", "pybind11_stubgen", "cmake", "toml"]
+requires = [
+            "ngsolve>=6.2.2405.post22.dev0",
+            "scikit-build-core>=0.9.0",
+            "pybind11_stubgen",
+            "cmake",
+            "toml;  python_version >= '3.11'",
+            "tomli>=1.1.0; python_version < '3.11'"
+]
 build-backend = "scikit_build_core.build"
 
 ##########################################################################
