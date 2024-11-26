@@ -99,7 +99,7 @@ macro(ngsolve_generate_stub_files module_name)
 
   install(CODE ${stubgen_generation_code})
   # install(DIRECTORY ${stubgen_directory} DESTINATION ${ADDON_INSTALL_DIR_PYTHON}/${module_name})
-  install(FILES ${stubgen_file} DESTINATION ${ADDON_INSTALL_DIR_PYTHON})
+  install(FILES ${stubgen_file} DESTINATION ${ADDON_INSTALL_DIR_PYTHON}/${module_name})
 endmacro()
 
 message(STATUS "Install dir: ${CMAKE_INSTALL_PREFIX}")
