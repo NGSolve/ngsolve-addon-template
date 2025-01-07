@@ -107,7 +107,7 @@ macro(ngsolve_generate_stub_files module_name)
     )
   endif()
 
-  if(IS_READABLE ${stubgen_file})
+  if(EXISTS ${stubgen_file})
     install(FILES ${stubgen_file} DESTINATION ${stubgen_install_destination})
   elseif(IS_DIRECTORY ${stubgen_directory})
     install(DIRECTORY ${stubgen_directory} DESTINATION ${stubgen_install_destination})
