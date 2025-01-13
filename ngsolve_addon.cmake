@@ -100,20 +100,9 @@ macro(ngsolve_generate_stub_files module_name)
 
   install(CODE ${stubgen_generation_code})
 
-  if(NOT IS_DIRECTORY ${CMAKE_INSTALL_PREFIX}/${stubgen_install_destination})
-    message(
-      FATAL_ERROR
-      "stub files cannot be installed to ${CMAKE_INSTALL_PREFIX}/${stubgen_install_destination}, the folder does not exist."
-    )
-  endif()
-
-  if(EXISTS ${stubgen_file})
-    install(FILES ${stubgen_file} DESTINATION ${stubgen_install_destination})
-  elseif(IS_DIRECTORY ${stubgen_directory})
-    install(DIRECTORY ${stubgen_directory} DESTINATION ${stubgen_install_destination})
-  else()
-    message(FATAL_ERROR "Unable to locate and install stub files.")
-  endif()
+  # sometimes, stubgen will only generate one file, and sometimes a whole folder. Try both.
+  install(FILES ${stubgen_file} DESTINATION ${stubgen_install_destination} OPTIONAL)
+  install(DIRECTORY ${stubgen_directory} DESTINATION ${stubgen_install_destination} OPTIONAL)
 endmacro()
 
 message(STATUS "Install dir: ${CMAKE_INSTALL_PREFIX}")
