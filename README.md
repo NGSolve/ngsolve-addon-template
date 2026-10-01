@@ -63,3 +63,31 @@ manylinux-x86_64-image = "manylinux_2_28"
 
 Some more NGSolve addons you can find here:
   * https://github.com/TUWien-ASC/NGS-myfe (including vs-code instructions)
+
+## Optional C++ library
+
+To export a shared C++ library, splitting the addon into a core library and a Python module, you can use the following CMake code.
+This will install the library, headers, and relocatable CMake files with the Python package.
+First, create a library with the C++ sources and headers.
+
+```cmake
+add_ngsolve_addon_library(myaddon_core
+  PACKAGE myaddon
+  EXPORT_NAME core
+  SOURCES src/core.cpp
+  PUBLIC_HEADERS src/core.hpp)
+```
+
+Then, create a Python module that links to the core library. 
+
+```cmake
+add_ngsolve_addon(_pymyaddon src/python.cpp)
+target_link_libraries(_pymyaddon PRIVATE myaddon_core)
+ngsolve_addon_set_relative_rpath(_pymyaddon ".")
+```
+
+The `ngsolve_addon_set_relative_rpath` function ensures that the shared library can be found at runtime and is the relative path to the Python module from your addon package at the installation location.
+
+Consumers use `find_package(myaddon CONFIG REQUIRED)` and link `myaddon::core`.
+A `myaddon.config` Python module can print the CMake directory, as `ngsolve.config` does. 
+Normal and post-release CMake package versions come from the Python package metadata automatically.

@@ -17,7 +17,6 @@ requires = [
             "ngsolve>=6.2.2405.post22.dev0",
             "scikit-build-core>=0.9.0",
             "pybind11_stubgen",
-            "cmake",
             "toml;  python_version >= '3.11'",
             "tomli>=1.1.0; python_version < '3.11'"
 ]
